@@ -3,10 +3,6 @@
 
 ## Part 1: Set Up Your Comparison
 
-Choose two models that differ in a way worth comparing: two sizes, two providers, etc.
-
-| | Model | Provider | Why you picked it |
-
 | Model A |Qwen2.5-3B-Instruct | Qwen | A small instruction-tuned model chosen for fast testing and structured JSON output. |
 | Model B | Phi-3.5-mini-Instruct | Microsoft | A similarly sized instruction-tuned model from a different provider, allowing a meaningful model-family comparison. |
 
@@ -28,10 +24,6 @@ Ticket:
 
 ## Part 2: Define Your Criteria
 
-Write three evaluation criteria for this task. At least one should be about something other than raw correctness, such as speed or how clean the output format is. Give a measurement method for each and the threshold you'd consider good enough to ship.
-
-Set the thresholds now, before you run anything. Deciding what counts as success after you've seen the results defeats the purpose.
-
 | # | Criterion | How you'd measure it | "Good enough" threshold |
 |---|---|---|---|
 | 1 | Classification accuracy | Count how many of the 6 tickets have all three fields exactly matching the reference answer. | At least 5/6 correct |
@@ -42,8 +34,6 @@ Set the thresholds now, before you run anything. Deciding what counts as success
 
 ## Part 3: Run Both Models
 
-Here are six tickets with the correct answer for each. Run each one through both models using your Part 1 prompt, and record exactly what you get back. Copy it verbatim, including any extra words or formatting quirks. Those details matter for scoring. Do not give the model the refernece, that is meant for you.
-
 | ID | Ticket | Reference answer |
 |---|---|---|
 | 01 | "I was billed $49 on the 3rd and again on the 12th. I only have one subscription. Please refund the duplicate." | `{"category": "billing", "urgency": "high", "needs_human": true}` |
@@ -53,7 +43,7 @@ Here are six tickets with the correct answer for each. Run each one through both
 | 05 | "Any chance you could add a dark mode? The white background is rough at night." | `{"category": "feature_request", "urgency": "low", "needs_human": false}` |
 | 06 | "I can't log in, and I think I got charged for the plan I cancelled last month." (both a login and a billing problem) | `{"category": "billing", "urgency": "medium", "needs_human": true}` |
 
-Record each model's output (please take screenshots of the output and use those to fill in the table):
+
 
 | ID | Model A output (verbatim) | Model B output (verbatim) |
 |---|---|---|
@@ -70,8 +60,6 @@ Note which model felt slower to respond. Model A: Qwen2.5-3B-Instruct Model (3.6
 
 ## Part 4: Score What You Got
 
-Score the outputs two ways. Here's what each one means:
-
 **Functional correctness** is a strict, mechanical check: the output passes only if it's valid JSON, has exactly the three required keys, and every value is allowed. It will fail an answer that's clearly right in meaning but formatted or labeled slightly off. Watch for that as you go.
 
 **Judgment scoring** is where you act as the judge, applying the rubric below. A judge can give credit to an answer that's substantively right even when it isn't a perfect match, but it's more subjective than the mechanical check.
@@ -79,8 +67,6 @@ Score the outputs two ways. Here's what each one means:
 Allowed values: `category` ∈ {billing, technical, account_access, feature_request, other}, `urgency` ∈ {low, medium, high}, `needs_human` ∈ {true, false}
 
 ### 4a. Functional-correctness check
-
-Mark each output pass or fail. Where it fails, say why.
 
 | ID | A: pass/fail | A — reason if fail | B: pass/fail | B — reason if fail |
 |---|---|---|---|---|
