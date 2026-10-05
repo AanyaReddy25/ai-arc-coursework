@@ -2,7 +2,7 @@
 
 **Name:** Aanya Akiti
 
-**Link to your completed Kaggle notebook:**[https://www.kaggle.com/code/akitiaanyareddy/day-2-document-q-a-with-rag](https://www.kaggle.com/code/akitiaanyareddy/day-2-document-q-a-with-rag)
+**Link to your completed Kaggle notebook:**https://www.kaggle.com/code/akitiaanyareddy/day-2-document-q-a-with-rag
 ---
 
 ## Part 1: Complete the RAG Codelab (30 pts)
